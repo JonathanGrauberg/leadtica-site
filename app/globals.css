@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/*
+ * Paleta y tipografías tomadas del sitio original de Wix.
+ * Todo el sitio es negro con grises claros; no hay modo claro.
+ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-bodoni), "Bodoni Moda", Georgia, serif;
+  --font-sans: var(--font-madefor), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-helvetica: Helvetica, Arial, sans-serif;
+
+  --color-fog: #cdcdcd; /* títulos */
+  --color-mist: #e8e6e6; /* texto */
+  --color-ash: #b0b0b0; /* menú, "Hunting Business Deals" */
+  --color-smoke: #989898; /* links del footer, subtítulos */
+  --color-coal: #191919; /* palabras gigantes de "Cómo lo hacemos" */
+  --color-dim: #595959; /* copyright */
+  --color-silver: #c7c7c7; /* logo gris */
+  --color-topbar: rgb(50 50 50 / 0.91);
+  --color-navbar: rgb(0 0 0 / 0.57);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/*
+ * En Wix la marca subió Bodoni Moda en cortes de tamaño óptico fijo
+ * ("18 pt", "28 pt"). Bodoni Moda de Google es variable con eje opsz,
+ * así que reproducimos cada corte fijando el tamaño óptico.
+ */
+@utility bodoni {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-variation-settings: "opsz" 18;
+}
+@utility bodoni-medium {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-variation-settings: "opsz" 18;
+}
+@utility bodoni-semibold {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-variation-settings: "opsz" 18;
+}
+@utility bodoni-bold {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-variation-settings: "opsz" 28;
+}
+@utility bodoni-black {
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-variation-settings: "opsz" 28;
+}
+
+/* Contenedor de 980 px, el ancho de página de Wix. */
+@utility wrap {
+  width: 100%;
+  max-width: calc(980px + 2rem);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* Degradados que en Wix eran PNG semitransparentes. */
+@utility fade-to-black {
+  background: linear-gradient(to bottom, rgb(0 0 0 / 0) 0%, #000 100%);
+}
+@utility fade-from-black {
+  background: linear-gradient(to bottom, #000 0%, rgb(0 0 0 / 0) 100%);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  color: var(--color-mist);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-ash);
+  color: #000;
 }

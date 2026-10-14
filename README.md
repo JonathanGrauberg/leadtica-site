@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Leadtica — sitio web
 
-## Getting Started
-
-First, run the development server:
+Réplica en Next.js del sitio que estaba en Wix (www.leadtica.com).
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estructura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `app/` — una carpeta por página: `comolohacemos`, `resultados`, `acerca-de`, `insights`, `formaparte`.
+  - `app/[slug]` — los 4 artículos destacados (`/account-based-marketing`, `/funnel-nfat`, …) y las páginas legales.
+  - `app/post/[slug]` — los posts del blog.
+- `content/site.json` — texto de artículos, posts y páginas legales (migrado del HTML de Wix).
+  Usa un markdown mínimo: `**negrita**`, `_itálica_`, `[link](url)`.
+- `components/brand/` — logo e isotipo en SVG (extraídos del sitio original).
+- `public/images/` — imágenes **originales** (sin la compresión de Wix). `next/image` las sirve
+  optimizadas en WebP/AVIF y al tamaño justo.
+- `public/video/hero.mp4` — video del hero de la home.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tipografía y colores
 
-## Learn More
+- Bodoni Moda (Google Fonts) con eje de tamaño óptico: utilidades `bodoni`, `bodoni-medium`,
+  `bodoni-semibold`, `bodoni-bold` y `bodoni-black` en `app/globals.css`.
+- Wix Madefor Text para el texto corrido (es la fuente que usa Wix, libre en Google Fonts).
+- Colores en `@theme` de `app/globals.css` (`fog`, `mist`, `ash`, `smoke`, …).
 
-To learn more about Next.js, take a look at the following resources:
+## Redirecciones
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Las URLs viejas de Wix con tildes (`/post/qué-es-revops`, `/política-de-privacidad`) redirigen
+con 308 a las nuevas sin tilde. Están en `next.config.ts`.
