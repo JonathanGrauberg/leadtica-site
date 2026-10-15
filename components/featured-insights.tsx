@@ -15,7 +15,12 @@ export function FeaturedInsights({ variant = "home" }: { variant?: "home" | "ins
                 alt=""
                 fill
                 sizes="(min-width: 1024px) 225px, 50vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover"
+              />
+              {/* Degradé del hover de la galería de Wix */}
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-linear-to-b from-[rgb(199_199_199/0.01)] to-black/75 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               />
             </div>
             <p className="bodoni-medium mt-[11px] min-h-[41px] text-[11px] leading-[13px] whitespace-pre-line text-mist sm:text-[15px] sm:leading-[18px]">

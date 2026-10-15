@@ -27,7 +27,7 @@ export default function AcercaDePage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover opacity-[0.18]"
           />
           <div className="fade-to-black absolute inset-x-0 bottom-0 h-[286px]" />
         </div>

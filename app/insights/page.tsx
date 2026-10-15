@@ -23,7 +23,7 @@ export default function InsightsPage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover opacity-[0.15]"
           />
           <div className="fade-to-black absolute inset-x-0 bottom-0 h-[160px]" />
         </div>

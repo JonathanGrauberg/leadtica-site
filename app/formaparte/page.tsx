@@ -34,7 +34,7 @@ export default function FormaPartePage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-50 lg:opacity-100"
+            className="object-cover opacity-[0.28]"
           />
           <div className="fade-to-black absolute inset-x-0 bottom-0 h-[200px]" />
         </div>

@@ -69,7 +69,7 @@ export default function ComoLoHacemosPage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover opacity-[0.14]"
           />
           <div className="fade-to-black absolute inset-x-0 bottom-0 h-[60%]" />
         </div>
@@ -101,7 +101,7 @@ export default function ComoLoHacemosPage() {
                 </span>
                 <a
                   href={`#${f.id}`}
-                  className="bodoni block truncate border border-fog px-3 py-[3px] text-[10px] leading-[16.8px] text-fog transition-colors hover:bg-fog hover:text-black sm:text-[12px]"
+                  className="bodoni block truncate border border-fog bg-black px-3 py-[3px] text-[10px] leading-[16.8px] text-fog transition-colors hover:bg-fog hover:text-black sm:text-[12px]"
                 >
                   {f.label}
                 </a>
@@ -115,18 +115,23 @@ export default function ComoLoHacemosPage() {
       </section>
 
       {/* Etapas en zigzag con la palabra gigante */}
-      <section className="wrap mt-16 space-y-16 lg:mt-[80px] lg:space-y-0">
+      <section className="wrap relative mt-16 space-y-16 lg:mt-[80px] lg:space-y-0">
+        {/* Línea vertical que divide las etapas (llega hasta el botón Resultados) */}
+        <span
+          aria-hidden
+          className="absolute -top-[63px] bottom-0 left-1/2 hidden w-px -translate-x-1/2 bg-fog lg:block"
+        />
         {steps.map((s, i) => {
           const right = i % 2 === 1;
           return (
             <div
               key={s.id}
               id={s.id}
-              className="scroll-mt-24 lg:grid lg:min-h-[195px] lg:grid-cols-2 lg:gap-8"
+              className="scroll-mt-24 lg:grid lg:min-h-[195px] lg:grid-cols-2"
             >
               <div
                 className={`flex flex-col ${
-                  right ? "lg:order-2 lg:items-start" : "lg:items-end lg:text-right"
+                  right ? "lg:order-2 lg:items-start lg:pl-[17px]" : "lg:items-end lg:pr-4 lg:text-right"
                 }`}
               >
                 <span className="bodoni-bold text-[20px] leading-[28px] text-fog">.{i + 1}</span>
@@ -134,7 +139,7 @@ export default function ComoLoHacemosPage() {
               </div>
               <p
                 className={`bodoni-bold mt-2 text-[40px] leading-[1.4] break-words text-coal sm:text-[52px] lg:mt-0 lg:text-[length:var(--s)] ${
-                  right ? "lg:order-1 lg:text-right" : ""
+                  right ? "lg:order-1 lg:pr-[15px] lg:text-right" : ""
                 }`}
                 style={{ ["--s" as string]: `${s.size}px` }}
                 aria-hidden
@@ -157,18 +162,21 @@ export default function ComoLoHacemosPage() {
 
       {/* Herramientas sobre la foto de la red */}
       <section className="relative h-[420px] lg:h-[566px]">
-        <Image src="/images/comolohacemos-red.jpg" alt="" fill sizes="100vw" className="object-cover" />
+        <Image src="/images/comolohacemos-red.jpg" alt="" fill sizes="100vw" className="object-cover opacity-[0.23]" />
         <div className="fade-from-black absolute inset-x-0 top-0 h-[240px]" />
         <div className="fade-to-black absolute inset-x-0 bottom-0 h-[233px]" />
-        <div className="wrap relative flex h-full flex-col items-center justify-end pb-16 lg:pb-[192px]">
+        <div className="wrap relative flex h-full flex-col items-center justify-end pb-16 lg:pb-[120px]">
           <h2 className="bodoni text-[22px] leading-[36.4px] text-smoke lg:text-[26px]">Herramientas</h2>
-          <ul className="mt-6 grid w-full grid-cols-2 gap-6 text-center lg:mt-[30px] lg:grid-cols-4 lg:px-[60px]">
-            {tools.map((t) => (
+          {/* Columnas con separadores verticales en las mismas posiciones que el original */}
+          <ul className="mt-6 grid w-full grid-cols-2 gap-6 text-center lg:mt-[30px] lg:ml-[50px] lg:grid-cols-[189px_232px_232px_233px] lg:gap-0 lg:self-start">
+            {tools.map((t, i) => (
               <li
                 key={t}
-                className="bodoni mx-auto max-w-[180px] text-[15px] leading-[21px] text-fog lg:text-[17px] lg:leading-[23.8px]"
+                className={`bodoni flex justify-center text-[15px] leading-[21px] text-fog lg:h-[120px] lg:px-4 lg:pt-[3px] lg:text-[17px] lg:leading-[23.8px] ${
+                  i > 0 ? "lg:border-l lg:border-fog" : ""
+                }`}
               >
-                {t}
+                <span className="max-w-[180px]">{t}</span>
               </li>
             ))}
           </ul>

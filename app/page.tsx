@@ -76,9 +76,7 @@ function Hero() {
         <p className="bodoni mt-3 max-w-[650px] text-[17px] leading-[20.4px] text-fog lg:mt-[25px] lg:text-[32px] lg:leading-[38.4px]">
           Construimos y mantenemos el pipeline para que su equipo se concentre en el cierre.
         </p>
-        <div className="mt-4 flex items-center gap-4 lg:hidden">
-          <LogoByInicio className="h-[33px] w-auto text-white" />
-        </div>
+        <LogoByInicio className="mt-4 h-[33px] w-auto text-white lg:mt-[38px] lg:h-[54px]" />
         <a
           href={LINKEDIN_URL}
           target="_blank"
@@ -102,12 +100,12 @@ function WhyUnpredictable() {
         width={409}
         height={837}
         sizes="162px"
-        className="absolute top-[120px] right-0 w-[77px] lg:top-[70px] lg:left-[calc(1rem+613px)] lg:w-[162px]"
+        className="absolute top-[120px] right-0 z-10 w-[77px] rotate-180 lg:top-[70px] lg:left-[calc(1rem+613px)] lg:w-[162px]"
       />
       <h2 className="bodoni-bold relative max-w-[177px] text-[12px] leading-[16.8px] text-mist lg:max-w-[425px] lg:text-[23px] lg:leading-[32.2px]">
-        Por qué muchas empresas B2B venden bien... <em>pero de forma impredecible.</em>
+        Por qué muchas empresas B2B venden bien...<em>pero de forma impredecible.</em>
       </h2>
-      <ul className="relative mt-5 max-w-[704px] bg-black py-[20px] pr-24 pl-[13px] text-[11px] leading-[15.4px] text-mist lg:mt-[11px] lg:px-4 lg:text-[15px] lg:leading-[21px]">
+      <ul className="relative mt-5 max-w-[704px] border border-fog bg-black py-[20px] pr-24 pl-[13px] text-[11px] leading-[15.4px] text-mist lg:mt-[11px] lg:px-4 lg:text-[15px] lg:leading-[21px]">
         {pains.map((p) => (
           <li key={p} className="mb-[2px] lg:mb-0">
             • {p}
@@ -127,7 +125,7 @@ function ContinuousChannel() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-left"
+          className="object-cover object-left opacity-[0.14]"
         />
         <div className="fade-from-black absolute inset-x-0 top-0 h-[169px]" />
         <div className="fade-to-black absolute inset-x-0 bottom-0 h-[215px]" />
@@ -139,9 +137,9 @@ function ContinuousChannel() {
         </h2>
 
         <div className="relative mt-6 lg:mt-[11px] lg:max-w-[916px]">
-          <div className="bg-black px-4 pt-6 pb-[38px] text-right text-[12px] leading-[16.8px] text-mist lg:text-[17px] lg:leading-[23.8px]">
+          <div className="border border-fog bg-black px-4 pt-6 pb-[38px] text-right text-[12px] leading-[16.8px] text-mist lg:text-[17px] lg:leading-[23.8px]">
             <p className="font-bold">Leadtica funciona como un departamento comercial externo.</p>
-            <p className="mt-[27px] ml-auto max-w-[830px]">
+            <p className="mt-[27px]">
               Nos encargamos de abrir y sostener conversaciones con empresas que encajan con su
               cliente ideal, hasta convertirlas en reuniones calificadas para su equipo de ventas.
             </p>
@@ -153,29 +151,33 @@ function ContinuousChannel() {
           <Isotipo className="absolute -bottom-[26px] -left-2 h-[33px] w-auto text-white lg:-left-[20px] lg:h-[53px]" />
         </div>
 
-        <div className="mt-12 flex justify-between text-[12px] leading-[16.8px] text-[#e8e6e6] lg:mt-[66px] lg:ml-[353px] lg:justify-start lg:gap-[100px] lg:text-[15px] lg:leading-[21px]">
-          <div>
-            <p className="bodoni-bold text-[13px] lg:text-[15px]">Nosotros</p>
-            <ul className="mt-[2px] lg:ml-[100px]">
+        {/* En desktop: título | línea vertical | lista, igual que el original */}
+        <div className="relative mt-12 flex flex-wrap justify-between gap-y-10 text-[12px] leading-[16.8px] text-mist lg:mt-[47px] lg:block lg:h-[206px] lg:text-[15px] lg:leading-[21px]">
+          <span aria-hidden className="absolute top-0 left-[430px] hidden h-[206px] w-px bg-fog lg:block" />
+          <span aria-hidden className="absolute top-0 left-[797px] hidden h-[160px] w-px bg-fog lg:block" />
+          <div className="lg:contents">
+            <p className="bodoni-bold text-[13px] lg:absolute lg:top-[12px] lg:left-[353px] lg:text-[15px]">
+              Nosotros
+            </p>
+            <ul className="mt-[2px] lg:absolute lg:top-[35px] lg:left-[452px] lg:mt-0">
               {nosotros.map((s) => (
                 <li key={s}>• {s}</li>
               ))}
             </ul>
           </div>
-          <div className="text-right lg:text-left">
-            <p className="bodoni-bold text-[13px] lg:text-[15px]">Su equipo</p>
-            <ul className="mt-[2px] lg:ml-[109px]">
+          <div className="text-right lg:contents lg:text-left">
+            <p className="bodoni-bold text-[13px] lg:absolute lg:top-[14px] lg:left-[714px] lg:text-[15px]">
+              Su equipo
+            </p>
+            <ul className="mt-[2px] lg:absolute lg:top-[37px] lg:left-[823px] lg:mt-0">
               {suEquipo.map((s) => (
                 <li key={s}>• {s}</li>
               ))}
             </ul>
           </div>
-        </div>
-
-        <div className="mt-10 lg:mt-[18px] lg:ml-[454px]">
           <Link
             href="/comolohacemos"
-            className="bodoni-bold inline-flex h-[47px] w-[198px] items-center justify-center bg-black text-[14px] text-fog transition-colors hover:text-white"
+            className="bodoni-bold inline-flex h-[47px] w-[198px] items-center justify-center border border-fog bg-black text-[14px] text-fog transition-colors hover:text-white lg:absolute lg:top-[159px] lg:left-[454px]"
           >
             ¿Cómo lo hacemos?
           </Link>
@@ -188,13 +190,13 @@ function ContinuousChannel() {
 function InsightsPreview() {
   return (
     <section className="wrap pt-14 lg:pt-[80px]">
-      <div className="flex items-baseline justify-between lg:pr-5">
+      <div className="flex items-center justify-between">
         <h2 className="bodoni text-[15px] leading-[21px] text-fog lg:text-[26px] lg:leading-[36.4px]">
           Insights
         </h2>
         <Link
           href="/insights"
-          className="bodoni-bold text-[10.4px] text-fog transition-colors hover:text-white lg:text-[12px]"
+          className="bodoni-bold flex h-[20px] w-[70px] items-center justify-center border border-fog bg-black text-[10.4px] text-fog transition-colors hover:text-white lg:h-[25px] lg:w-[92px] lg:text-[12px]"
         >
           Ver todos
         </Link>
@@ -215,32 +217,27 @@ function HuntingDeals() {
           alt=""
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-cover"
+          className="object-cover opacity-[0.42]"
         />
         <div className="fade-from-black absolute inset-x-0 top-0 h-[90px] lg:h-[181px]" />
         <div className="fade-to-black absolute inset-x-0 bottom-0 h-[90px] lg:h-[181px]" />
         <nav
           aria-label="Secciones"
-          className="absolute right-0 bottom-4 flex w-full items-end justify-center gap-6 lg:top-[100px] lg:bottom-auto lg:w-auto lg:flex-col lg:gap-0"
+          className="absolute right-0 bottom-4 flex w-full items-end justify-center gap-3 lg:top-[100px] lg:bottom-auto lg:w-auto lg:flex-col lg:gap-[13px]"
         >
-          <Link
-            href="/comolohacemos"
-            className="bodoni-bold bg-black px-[10px] py-[2px] text-[13px] text-fog transition-colors hover:text-white lg:text-[14px]"
-          >
-            ¿Cómo lo hacemos?
-          </Link>
-          <Link
-            href="/acerca-de"
-            className="bodoni-bold px-[10px] py-[2px] text-[13px] text-fog transition-colors hover:text-white lg:mt-[13px] lg:text-[14px]"
-          >
-            Acerca de
-          </Link>
-          <Link
-            href="/resultados"
-            className="bodoni-bold bg-black px-[10px] py-[2px] text-[13px] text-fog transition-colors hover:text-white lg:mt-[11px] lg:text-[14px]"
-          >
-            Resultados
-          </Link>
+          {[
+            { href: "/comolohacemos", label: "¿Cómo lo hacemos?", w: "lg:w-[153px]" },
+            { href: "/acerca-de", label: "Acerca de", w: "lg:w-[92px]" },
+            { href: "/resultados", label: "Resultados", w: "lg:w-[107px]" },
+          ].map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className={`bodoni-bold flex h-[25px] items-center justify-center border border-fog bg-black px-2 text-[12px] text-fog transition-colors hover:text-white lg:px-0 lg:text-[14px] ${l.w}`}
+            >
+              {l.label}
+            </Link>
+          ))}
         </nav>
       </div>
       <div className="flex flex-col items-center px-6 pt-8 lg:items-start lg:pt-[29px] lg:pl-[24px]">

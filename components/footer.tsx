@@ -19,7 +19,7 @@ const linkClass = "text-smoke transition-colors hover:text-mist";
 
 export function Footer() {
   return (
-    <footer className="bg-black pt-[53px] pb-10 font-helvetica text-[14px] leading-[19.6px]">
+    <footer className="border-t border-smoke bg-black pt-[53px] pb-[33px] font-helvetica text-[14px] leading-[19.6px]">
       <div className="wrap">
         <Link href="/" aria-label="Leadtica, inicio" className="inline-block text-white">
           <LogoByInicio className="h-[41px] w-auto" />
@@ -64,7 +64,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-[66px] flex flex-col gap-3 sm:flex-row sm:gap-0">
+        <div className="mt-[42px] flex flex-col gap-3 border-t border-fog pt-[17px] sm:flex-row sm:gap-0">
           <span className="text-dim sm:w-[300px]">Leadtica © Copyright {new Date().getFullYear()}</span>
           <Link href="/politica-de-privacidad" className={`${linkClass} sm:w-[265px]`}>
             Política de Privacidad

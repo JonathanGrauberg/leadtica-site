@@ -44,7 +44,7 @@ export default function ResultadosPage() {
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-60 lg:opacity-100"
+          className="object-cover opacity-[0.19]"
         />
         <div
           className="absolute inset-x-0 bottom-0 h-[146px]"

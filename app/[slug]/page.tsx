@@ -54,7 +54,14 @@ function ArticlePage({ slug, page }: { slug: string; page: PageData }) {
     <>
       <article className="relative pb-24 lg:pb-[160px]">
         <div className="absolute inset-x-0 top-0 h-[504px] overflow-hidden">
-          <Image src={img.cover} alt="" fill priority sizes="100vw" className="object-cover" />
+          <Image
+            src={img.cover}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-[0.16]"
+          />
           <div className="fade-to-black absolute inset-x-0 bottom-0 h-[232px]" />
         </div>
 
@@ -100,7 +107,7 @@ function LegalPage({ slug, page }: { slug: string; page: PageData }) {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover opacity-[0.35]"
         />
         <div className="fade-to-black absolute inset-x-0 bottom-0 h-[382px]" />
       </div>
